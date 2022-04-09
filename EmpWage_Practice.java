@@ -1,27 +1,54 @@
 package com.OopsConcept;
 
 public class EmpWage_Practice {
-    public static void main(String[] args) {
 
-        //UC2
 
-        //to calculate daily wage
+        //UC5
+
+        //calculating wage for month assuming 20 working days in month
+
 
 
         //constants
-        int IS_FULL_TIME = 1;
-        int EMP_RATE_PER_HOUR = 20;
+    public static final int IS_FULL_TIME = 2;
+    public static final int IS_PART_TIME = 1;
+    public static final int EMP_RATE_PER_HOUR = 20;
+    public static final int NUM_OF_WORKING_DAYS = 2;
+
+    public static void main(String[] args) {
+
+
+
+
 
         //VARIABLES
         int empHrs = 0;
         int empWage = 0;
+        int totalEmpWage = 0;
+        int day =0;
         //computation
-        double empCheck = Math.floor(Math.random() * 10) % 2;
-        if (empCheck == IS_FULL_TIME)
-           empHrs = 8;
-        else
-            empHrs = 0;
-            System.out.println("Employee wage :" + empWage);
+        for (day = 0; day < NUM_OF_WORKING_DAYS; day++){
+            int empCheck = (int) Math.floor(Math.random() * 10) % 3;
+            switch (empCheck) {
+                case 0://IS_PART_TIME
+                    empHrs = 4;
+                    break;
+
+                case 1://IS_FULL_TIME
+
+                    empHrs = 8;
+                    break;
+                default:
+                    empHrs = 0;
+            }
+            empWage = empHrs * EMP_RATE_PER_HOUR;
+            totalEmpWage += empWage;
+            System.out.println("Emp wage:" + empWage);
+        }
+        System.out.println("total emp wage: " + totalEmpWage);
+
+
+
 
     }
 
